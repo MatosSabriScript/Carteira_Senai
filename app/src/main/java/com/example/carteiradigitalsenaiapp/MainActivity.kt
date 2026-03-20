@@ -16,16 +16,22 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.carteiradigitalsenaiapp.ui.theme.CarteiraDigitalTheme
 
 class MainActivity : ComponentActivity() {
@@ -78,19 +84,57 @@ fun CarteirinhaDigitalApp(modifier: Modifier = Modifier) {
                     .fillMaxWidth(.6f)
             )
             Row(
-                modifier = Modifier.weight(.2f)
+                modifier = Modifier
+                    .weight(.2f)
+                    .fillMaxWidth(.9f),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Nome: ")
-                Text("Christan Maia")
+                labelText(
+                    "Nome:"
+                )
+                ValueText(
+                    "Christian Maia",
+                    modifier = Modifier.weight(1f),
+                    fontSize = 25.sp
+                )
             }
             Row(
-                modifier = Modifier.weight(.2f)
+                modifier = Modifier
+                    .weight(.2f)
+                    .fillMaxWidth(.9f),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("Curso: ")
-                Text("4DEVMA")
+                labelText(
+                    "Curso:"
+                )
+                ValueText(
+                    "4DEVMA",
+                    modifier = Modifier.weight(1f)
+                )
             }
+            Button(
+                onClick = { }
+            ) {
+                Text("Aperta aqui")
+            }
+            TextField(
+                value = "",
+                onValueChange = {  },
+                label = {
+                    Text("Número da Matricula")
+                }
+            )
+            OutlinedTextField(
+                value = "",
+                onValueChange = {  },
+                label = {
+                    Text("Número da Matricula")
+                }
+            )
             QrCode(
-                "Valor do QR code",
+                "90000000001418424776",
                 modifier = Modifier
                     .weight(2f)
                     .fillMaxWidth(.6f)
@@ -99,3 +143,22 @@ fun CarteirinhaDigitalApp(modifier: Modifier = Modifier) {
         }
     }
 }
+@Preview(
+    showBackground = true
+)
+@Composable
+fun PreviewCarteirinhaClaro(){
+    CarteiraDigitalTheme(darkTheme = false){
+        CarteirinhaDigitalApp(modifier = Modifier.padding(16.dp))
+    }
+}
+@Preview(
+    showBackground = true
+)
+@Composable
+fun PreviewCarteirinhaEscuro(){
+    CarteiraDigitalTheme(darkTheme = true){
+        CarteirinhaDigitalApp(modifier = Modifier.padding(16.dp))
+    }
+}
+

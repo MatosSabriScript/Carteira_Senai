@@ -15,7 +15,7 @@ import com.google.zxing.qrcode.QRCodeWriter
 
 @Composable
 fun QrCode(
-    conteudo: String = "90000000001418424776",
+    conteudo: String,
     modifier: Modifier = Modifier
 ) {
     val bitmap = gerarQrCode(conteudo)
