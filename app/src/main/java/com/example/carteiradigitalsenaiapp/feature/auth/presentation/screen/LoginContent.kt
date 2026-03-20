@@ -1,17 +1,15 @@
-package com.example.carteiradigitalsenaiapp.feature.auth.presentation
+package com.example.carteiradigitalsenaiapp.feature.auth.presentation.screen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -20,54 +18,52 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.carteiradigitalsenaiapp.core.designsystem.theme.CarteiraDigitalTheme
-
-
 @Composable
-fun LoginView(
-    modifier: Modifier = Modifier
-){
-    Column (
-        modifier = modifier,
+fun LoginContent(
+    modifier: Modifier = Modifier,
+    login: String = "",
+    senha: String = "",
+    onLoginChange: (String) -> Unit = {},
+    onSenhaChange: (String) -> Unit ={},
+    onLoginClick: () -> Unit = {}
+) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .safeDrawingPadding(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(
             space = 16.dp,
             alignment = Alignment.CenterVertically
         )
-    ){
+    ) {
         TextField(
-            value = "",
-            onValueChange = {},
+            value = login,
+            onValueChange = onLoginChange,
             label = {
                 Text("Login")
-            },
+            }
         )
-            OutlinedTextField(
-                value = "",
-                onValueChange = {},
-                label = {
-                    Text("Login")
-                },
+
+        TextField(
+            value = senha,
+            onValueChange = onSenhaChange,
+            label = {
+                Text("Senha")
+            }
         )
+
         Button(
-            onClick = {},
-            modifier = Modifier
-                .fillMaxWidth(.6f),
-            shape = RoundedCornerShape(size = 5.dp),
+            onClick = onLoginClick,
+            modifier = Modifier.fillMaxWidth(0.6f),
+            shape = RoundedCornerShape(size = 9.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.inversePrimary,
+                containerColor = MaterialTheme.colorScheme.primary
             ),
             border = BorderStroke(
                 2.dp,
-                MaterialTheme.colorScheme.primary
+                MaterialTheme.colorScheme.background
             )
-        ) {
-            Text("Entrar")
-        }
-        OutlinedButton(
-            onClick = {},
-            modifier = Modifier
-                .fillMaxWidth(.6f),
-            shape = RoundedCornerShape(size = 5.dp)
         ) {
             Text("Entrar")
         }
@@ -79,26 +75,19 @@ fun LoginView(
     showSystemUi = true
 )
 @Composable
-fun LoginClaro(){
-    CarteiraDigitalTheme(darkTheme = false){
-        LoginView(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
-        )
+fun PreviewLoginContentClaro() {
+    CarteiraDigitalTheme(darkTheme = false) {
+        LoginContent( )
     }
 }
+
 @Preview(
     showBackground = true,
     showSystemUi = true
 )
 @Composable
-fun LoginEscuro(){
-    CarteiraDigitalTheme(darkTheme = true){
-        LoginView(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
-        )
+fun PreviewLoginContentEscuro() {
+    CarteiraDigitalTheme(darkTheme = true) {
+        LoginContent( )
     }
 }

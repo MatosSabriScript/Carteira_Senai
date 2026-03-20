@@ -1,4 +1,4 @@
-package com.example.carteiradigitalsenaiapp
+package com.example.carteiradigitalsenaiapp.feature.home.presentation.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable

@@ -38,6 +38,9 @@ android {
 }
 
 dependencies {
+    //Para navegação de telas
+    implementation("androidx.navigation:navigation-compose:2.8.3")
+
     implementation("com.google.zxing:core:3.5.4")
     implementation("androidx.compose.ui:ui-text-google-fonts")
     implementation(libs.androidx.core.ktx)
@@ -57,3 +60,4 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
 }
+

@@ -1,6 +1,5 @@
-package com.example.carteiradigitalsenaiapp
+package com.example.carteiradigitalsenaiapp.feature.home.presentation.component
 
-import androidx.annotation.Size
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text

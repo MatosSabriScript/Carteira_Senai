@@ -1,4 +1,4 @@
-package com.example.carteiradigitalsenaiapp
+package com.example.carteiradigitalsenaiapp.feature.home.presentation.component
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
