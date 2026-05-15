@@ -11,6 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.carteiradigitalsenaiapp.feature.auth.presentation.screen.LoginScreen
 import com.example.carteiradigitalsenaiapp.feature.home.presentation.screen.CarteiraView
+import com.example.carteiradigitalsenaiapp.feature.home.presentation.screen.UnidadesScreen
 
 @Composable
 fun AppNavHost(
@@ -32,6 +33,11 @@ fun AppNavHost(
             CarteiraView(
                 modifier = Modifier
                     .fillMaxSize()
+            )
+        }
+        composable(Routes.Unidades.route) {
+            UnidadesScreen(
+                modifier = Modifier.fillMaxSize()
             )
         }
     }
